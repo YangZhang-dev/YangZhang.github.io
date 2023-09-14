@@ -3,7 +3,7 @@ title: java集合类
 
 order: 1
 author: zzys
-date: 2023-03-10
+date: '2023-03-10'
 category:
     - 工具
 tag:
