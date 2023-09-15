@@ -36,7 +36,7 @@ jobs:
             password: ${{ secrets.PASSWORD }} 
             port: ${{ secrets.PORT }}
             local_path: 'docs/.vuepress/dist'
-            remote_path: '/root/page/dist'
+            remote_path: '/root/page'
             sftpArgs: '-o ConnectTimeout=5'
       # 查看 workflow 的文档来获取更多信息
       # @see https://github.com/crazy-max/ghaction-github-pages
