@@ -1,4 +1,6 @@
 node_modules
-docs/.vuepress
+docs/.vuepress/.cache
+docs/.vuepress/dist
+docs/.vuepress/.temp
 yarn.lock
 .github/
