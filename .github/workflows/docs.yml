@@ -28,17 +28,16 @@ jobs:
       # 运行构建脚本
       - name: Build VuePress site
         run: npm run docs:build
-
-      - name: deploy file to server
-        uses: wlixcc/SFTP-Deploy-Action@v1.0 
-        with:  
-          username: 'root'   #ssh user name
-          server: ${{ secrets.SERVER_IP }} #引用之前创建好的secret
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} #引用之前创建好的secret
-          local_path: 'docs/.vuepress/dist'  # 对应我们项目build的文件夹路径
-          remote_path: '/root/page/dist'
-          port: 322
-
+      - name: deploy file
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+            username: ${{secrets.USERNAME}}
+            server: ${{ secrets.HOST }}
+            password: ${{ secrets.PASSWORD }} 
+            port: ${{ secrets.PORT }}
+            local_path: 'docs/.vuepress/dist'
+            remote_path: '/root/page/dist'
+            sftpArgs: '-o ConnectTimeout=5'
       # 查看 workflow 的文档来获取更多信息
       # @see https://github.com/crazy-max/ghaction-github-pages
       - name: Deploy to GitHub Pages
