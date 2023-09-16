@@ -21,7 +21,7 @@ jobs:
       - name: Build VuePress site
         run: npm run docs:build
       - name: create-CNAME
-        run: touch docs/CNAME && echo "zzzyss.top" > docs/CNAME
+        run: touch docs/.vuepress/dist/CNAME && echo "zzzyss.top" > docs/.vuepress/dist/CNAME
       - name: deploy file
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
