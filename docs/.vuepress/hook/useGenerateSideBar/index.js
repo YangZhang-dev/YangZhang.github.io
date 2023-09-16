@@ -1,10 +1,9 @@
-import { log } from "console"
 import fs from "fs"
 import path from "path"
 export default () => {
     let folderPath = "./docs"
     let res = ge(folderPath).children
-    log(JSON.stringify(res))
+    // log(JSON.stringify(res))
     return res
 }
 

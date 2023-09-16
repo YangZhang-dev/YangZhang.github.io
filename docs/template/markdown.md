@@ -1,6 +1,5 @@
 ---
-title: java集合类
-
+title: markdown的使用
 order: 1
 author: zzys
 date: 2023-03-10
@@ -10,9 +9,11 @@ tag:
 - markdown语法
 ---
 
-
-
+typora:
 [toc]
+
+vuepress:
+[[toc]]
 
 ## 角标
 
