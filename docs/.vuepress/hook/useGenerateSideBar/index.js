@@ -1,12 +1,13 @@
+import { log } from "console"
 import fs from "fs"
 import path from "path"
 export default () => {
     let folderPath = "./docs"
     let res = ge(folderPath).children
-    // log(JSON.stringify(res))
+    log(JSON.stringify(res))
     return res
 }
-// fullFileName 当前层级的路径
+
 const ge = (fullFileName) => {
     try {
         const s = fs.statSync(fullFileName)
@@ -15,7 +16,7 @@ const ge = (fullFileName) => {
             fos = allFile(fullFileName)
         }else {
             if(!fullFileName.includes(".md")) return null
-            return fullFileName.replace("docs","").replace(".md","").replace(/\\/g,"/");
+            return fullFileName.replace("docs","").replace(".md","").replaceAll(path.sep,"/");
         }
         if(!fos) return null
         let cs = [];
@@ -27,7 +28,7 @@ const ge = (fullFileName) => {
             }
             if(o != null && o != undefined && o != "") cs.push(o)
         })
-        let ps = fullFileName.split("\\");
+        let ps = fullFileName.split(path.sep);
         let p = ps[ps.length - 1];
         let cur = {
             text: p,
