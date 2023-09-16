@@ -4,15 +4,13 @@ import { defaultTheme } from '@vuepress/theme-default';
 import { copyCodePlugin } from "vuepress-plugin-copy-code2";
 import { copyrightPlugin } from "vuepress-plugin-copyright2";
 import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
-import metadata from '../metadata';
+import useGenerateSideBar from './hook/useGenerateSideBar';
+import metadata from './metadata';
 export default {    
-    title: 'zzzzz',// 设置网站标题
-    description: 'zzys的博客',
-    base: '/',   // 设置站点根路径
-  
+    title: metadata.title,
+    description: metadata.description,
     theme: defaultTheme({
-        repo:'https://github.com/YangZhang-dev',
-        repoLabel:"跳转仓库",
+        repo: metadata.github,
         footer:metadata.footer,
         editLink: false,
         search: true,
@@ -20,31 +18,16 @@ export default {
         lastUpdatedText: "上次更新",
         navbar:[
             {
-                text:"test",
-                link:"/test/"
+                text:"interview",
+                link:"/interview/"
             },
             {
-                text:"my",
-                link:"/my/",
+                text:"code",
+                link:"/code/",
             }
         ],
-
-        sidebar:{
-            "/test":[
-                {
-                    text:"test目录",
-                    children:["/test/test","/test/test1"]
-                }
-            ],
-            "/my":[
-                {
-                    text:"my目录",
-                    children:["/my/my"]
-                }
-            ],
-        }
+        sidebar: useGenerateSideBar()   
     }),
-
 
     plugins: [
         copyCodePlugin({
@@ -53,7 +36,7 @@ export default {
         copyrightPlugin({
             global: true,
             triggerLength:10,
-            author: "YangZhang",
+            author: metadata.author,
             license: metadata.footer
         }),
 
@@ -63,18 +46,18 @@ export default {
             searchMaxSuggestions:5,
         }),
         mdEnhancePlugin({
-        // 启用任务列表
-        tasklist: true,
-        footnote: true,
-        mark: true,
-        imgLazyload: true,
-        mermaid: true,
-        // 使用 KaTeX 启用 TeX 支持
-        katex: true,
-        // 启用下角标功能
-        sub: true,
-        // 启用上角标
-        sup: true,
+            // 启用任务列表
+            tasklist: true,
+            footnote: true,
+            mark: true,
+            imgLazyload: true,
+            mermaid: true,
+            // 使用 KaTeX 启用 TeX 支持
+            katex: true,
+            // 启用下角标功能
+            sub: true,
+            // 启用上角标
+            sup: true,
         }),
     ],
 };

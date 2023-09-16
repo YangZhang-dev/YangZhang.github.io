@@ -3,18 +3,19 @@ title: java集合类
 
 order: 1
 author: zzys
-date: '2023-03-10'
+date: 2023-03-10
 category:
-    - 工具
+- 工具
 tag:
-  - markdown语法
+- markdown语法
 ---
 
 
 
+[toc]
 
 ## 角标
-hihihi
+
 You can create footnotes like this[^fn1] and this[^fn2].
 
 ## 任务列表
@@ -53,8 +54,8 @@ __sd__
 > test
 
 ## 表情
+
 :smile:
-:smirk:
 
 ## 简单公式
 
@@ -64,19 +65,15 @@ H~2~O
 
 X^2^
 
-==highlight==
-
-
-
 ## 数学公式
 
 $a = b$
 
-
-
 ## iframe
-<iframe height='365' src='https://www.mubu.com/doc/2Ught8SETJ6#m' width="100%"></iframe>
 
+<iframe height='365' src='https://www.mubu.com/doc/2Ught8SETJ6#m' style='width: 100%;'></iframe>
+
+<iframe height='265' scrolling='no' title='Fancy Animated SVG Menu' src='http://codepen.io/jeangontijo/embed/OxVywj/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
 
 ## comment
 
