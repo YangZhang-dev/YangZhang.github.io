@@ -4,3 +4,4 @@ docs/.vuepress/dist
 docs/.vuepress/.temp
 yarn.lock
 .github/
+.idea/
