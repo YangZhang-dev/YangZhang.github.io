@@ -1,5 +1,7 @@
-import fs from "fs"
-import path from "path"
+import fs from "fs";
+import yaml from "js-yaml";
+import path from "path";
+
 export default () => {
     let folderPath = "./docs"
     let res = ge(folderPath).children
@@ -29,15 +31,38 @@ const ge = (fullFileName) => {
         })
         let ps = fullFileName.split(path.sep);
         let p = ps[ps.length - 1];
-        let cur = {
+        cs = sort(cs)
+        return {
             text: p,
-            collapsible:true,
-            children:cs,
+            collapsible: true,
+            children: cs,
         }
-        return cur
       } catch (err) {
         console.error(err);
       }
+}
+const sort = (fileList) => {
+    let res = []
+    fileList.map(fileName => {
+        if(typeof fileName != "string") {
+            res.push(fileName)
+            return null
+        }
+    })
+    res.push(...fileList.filter(fileName => {
+        return typeof fileName == "string"
+    }).sort((a,b) => {
+        return getOrder(a) - getOrder(b)
+    }))
+    return res
+}
+const getOrder = (fileName) => {
+    fileName = "./docs" + fileName + ".md"
+    fileName = fileName.replaceAll("/",path.sep)
+    const content = fs.readFileSync(fileName, 'utf8')
+    let re = /---(.*?)---/sg
+    let s = re.exec(content)[1]
+    return yaml.load(s).order
 }
 const allFile = (folderPath) => {
     return fs.readdirSync(folderPath).
