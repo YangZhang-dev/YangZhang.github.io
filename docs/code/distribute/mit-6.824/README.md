@@ -1,7 +1,7 @@
 ---
 title: mit-6.824
 
-order: 1
+order: 0
 author: zzys
 date: 2023-03-03
 category:
