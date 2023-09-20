@@ -19,7 +19,7 @@ tag:
 
 ### 设计难点
 
-<img src="D:\桌面\distributed-store-hard.png" style="zoom: 80%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/8dccf87f778e7fe8a913ac746db4ae66.png" style="zoom: 80%;" />
 
 > 并发性问题举例： W1写1，W2写2；R1和R2准备读取数据。W1和W2并发写，在不关心谁先谁后的情况下，考虑一致性，则我们希望R1和R2都读取到1或者都读取到2，R1和R2读取的值应该一致。（可通过分布式锁等机制解决）
 >
@@ -104,4 +104,3 @@ tag:
 - primary回应Client，你想append追加的数据已完成写入
 
 - 当然，存在一些情况导致数据append失败，此时primary本身写入成功，但是后续存在某些/某个secondaries写入失败，此时会向Client返回错误error。Client遇到这种错误后，通常会retry整个流程直到数据成功append，这也就是所谓的最少一次语义(do at-least-once)。
-
