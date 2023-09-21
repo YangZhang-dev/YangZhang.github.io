@@ -1,5 +1,5 @@
 ---
-title: java设计模式
+title: 设计模式
 
 order: 1
 author: zzys
