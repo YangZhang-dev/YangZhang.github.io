@@ -16,7 +16,7 @@ tag:
 
 在单机版后端服务中，常常使用session来保持客户端的状态，但在分布式的场景下，不同机器之间的session是不互通的，所以需要一个第三方中间件来共享session，这里就用到了redis。可以采用string的数据结构，key做用户的**唯一标识**，value存储用户信息的**序列化json**串。
 
-<img src="D:\桌面\7、Redis入门到实战教程\Redis-笔记资料\02-实战篇\讲义\Redis实战篇.assets\1653319474181.png" alt="1653319474181" style="zoom:67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/3b091b9a9acf4e477ec1ddcc8140aa0e.png" alt="1653319474181" style="zoom:67%;" />
 
 ## 缓存
 
@@ -24,7 +24,7 @@ tag:
 
 实际上从前端一直到后端，整个链路上都存在着各种各样的缓存：
 
-<img src="D:\桌面\7、Redis入门到实战教程\Redis-笔记资料\02-实战篇\讲义\Redis实战篇.assets\image-20220523212915666.png" alt="image-20220523212915666" style="zoom:67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/6af75f78aa3b11f98f3251b56ff426b2.png" alt="image-20220523212915666" style="zoom:67%;" />
 
 **缓存的基本思路**：查询数据库之前先查询缓存，如果缓存数据存在，则直接从缓存中返回，如果缓存数据不存在，再查询数据库，然后将数据存入redis。
 
@@ -56,7 +56,7 @@ tag:
 
   应该是要先操作数据库，如果先操作缓存，可能会出现数据的不一致性。
 
-<img src="D:\桌面\7、Redis入门到实战教程\Redis-笔记资料\02-实战篇\讲义\Redis实战篇.assets\1653323595206.png" alt="1653323595206" style="zoom:67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/3a3ece8eeb88e6a13efc949f8fea5690.png" alt="1653323595206" style="zoom:67%;" />
 
 实际上第二种也是存在并发问题的，线程1先操作数据库，还没来得及更新缓存，线程2就返回了脏缓存数据。这里引入了**延迟双删**的策略。
 
@@ -99,7 +99,7 @@ tag:
 
 - 逻辑过期：即将过期时间value中，由程序员手动控制，优点是异步的构建缓存，加大并发度，缺点在于在构建完缓存之前，返回的都是脏数据。具体操作如下：
 
-  <img src="D:\桌面\7、Redis入门到实战教程\Redis-笔记资料\02-实战篇\讲义\Redis实战篇.assets\1653328663897.png" alt="1653328663897" style="zoom:67%;" />
+  <img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/bd46d4d176acb3a2b28764722829ff7f.png" alt="1653328663897" style="zoom:67%;" />
 
 ### 缓存雪崩
 
