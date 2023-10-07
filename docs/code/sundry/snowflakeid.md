@@ -1,6 +1,6 @@
 ---
 title: snowflakeid
-order: 2
+order: 1
 author: zzys
 date: 2023-09-29
 category:
@@ -85,7 +85,7 @@ return { resultWorkId, resultDataCenterId }
 
 [数据库横向分表（基因法）](https://www.jianshu.com/p/f415d0d2dac2)，[基因算法-分库分表的超级解决方案 ](https://juejin.cn/post/6964028801626046471)
 
-和基因法结合，假设取4位，将最后的序列号去掉四位和基因数字融合，然后再按照最后四位进行分库分表。
+和基因法结合，假设取4位，将最后的序列号去掉四位和基因数字融合，然后再按照最后四位进行分库分表。可以使得相同基因的记录分在相同的库/表中。
 
 ## 优化
 
