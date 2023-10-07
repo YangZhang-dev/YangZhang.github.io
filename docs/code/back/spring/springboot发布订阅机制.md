@@ -1,5 +1,6 @@
 ---
 title: springboot发布订阅机制
+order: 4
 author: zzys
 date: 2023-09-14
 category:

@@ -1,5 +1,6 @@
 ---
 title: 非spring管理的类使用bean
+order: 2
 author: zzys
 date: 2023-09-14
 category:
