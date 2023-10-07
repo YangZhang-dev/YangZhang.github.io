@@ -85,7 +85,7 @@ tag:
     * 实现复杂
     * 存在误判可能（Hash冲突）
 
-<img src="D:\桌面\7、Redis入门到实战教程\Redis-笔记资料\02-实战篇\讲义\Redis实战篇.assets\1653326156516.png" alt="1653326156516" style="zoom:67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/ad79c066e3792dc6f3a56d6ce66ec8a6.png" alt="1653326156516" style="zoom:67%;" />
 
 ### 缓存击穿
 
