@@ -17,6 +17,7 @@ tag:
 -  [rocketmq](..\code\back\mq\rocketmq) 
 -   [非spring管理的类使用bean.md](..\code\back\spring\非spring管理的类使用bean.md) 
 -   [springboot发布订阅机制.md](..\code\back\spring\springboot发布订阅机制.md) 
+-    [限流.md](..\code\sundry\限流.md) 
 
 ## doing
 
