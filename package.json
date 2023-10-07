@@ -5,6 +5,7 @@
   "author": "YangZhang <2803436425@qq.com>",
   "scripts": {
     "prepare": "husky install",
+    "precommit": "G:\\goProject\\Tool\\checkContent\\main.exe G:\\blog\\docs\\",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
