@@ -24,7 +24,7 @@ tag:
 
 `gateway filter`会作用在指定的路由，需要手动配置在`spring.cloud.gateway.routes[i].filters`下，下面是官方提供的filter：
 
-<img src="https://img-blog.csdnimg.cn/img_convert/8c0b631debdd61384900aaa60fab41c3.png" style="zoom:67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/301b7c1b90a8140c51f1d80e610178ca.png" alt="image-20231008085452456" style="zoom:67%;" />
 
 上面的信息也可以去`org.springframework.cloud.gateway.filter.factory`包下查看，毕竟版本不同有些参数名可能是会改变的。
 
@@ -40,7 +40,7 @@ tag:
 
 另一种是`Global filter`应用在所有路由上的过滤器，无需手动配置，官方提供的如下：
 
-![](https://img-blog.csdnimg.cn/img_convert/1091c47096d3f63ddb93e3ccd265aa01.png)
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/a834c0f1b874eb37ad537a2737a96ee8.png" alt="image-20231008085528922" style="zoom: 67%;" />
 
 ## 自定义Filter
 
@@ -91,7 +91,7 @@ public class GatewayConfig {
 }
 ```
 
-另一种是比较推荐的，实现过滤器的父接口`AbstractGatewayFilterFactory`
+另一种是比较推荐的，实现过滤器工厂的父接口`AbstractGatewayFilterFactory`，重写apply方法，返回一个`GatewayFilter`。同时在构造方法中将Config的Class传给父工厂。
 
 ```java
 @Slf4j
@@ -101,8 +101,6 @@ public class RequestLogGatewayFilterFactory extends AbstractGatewayFilterFactory
     public RequestLogGatewayFilterFactory() {
         super(Config.class);
     }
-
-
     @Override
     public GatewayFilter apply(Config config) {
         return new GatewayFilter() {
@@ -121,13 +119,14 @@ public class RequestLogGatewayFilterFactory extends AbstractGatewayFilterFactory
                 return GatewayToStringStyler.filterToStringCreator(RequestLogGatewayFilterFactory.this).toString();
             }
         };
+//      return (exchange,chain)->{
+//      };
     }
     
     @Data
     public class Config {
         private String name;
     }
-
 }
 ```
 
