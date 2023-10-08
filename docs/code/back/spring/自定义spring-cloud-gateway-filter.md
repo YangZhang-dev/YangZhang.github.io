@@ -6,8 +6,8 @@ date: 2023-09-14
 category:
 - 笔记
 tag:
-- spring
-- spring boot
+- spring cloud
+- gateway
 ---
 
 参考文章：

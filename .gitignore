@@ -5,3 +5,4 @@ docs/.vuepress/.temp
 yarn.lock
 .github/
 .idea/
+docs/.obsidian

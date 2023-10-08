@@ -116,3 +116,53 @@ tag:
 
 参考： [秒杀场景](..\..\sundry\秒杀场景.md) 
 
+## 点赞
+
+使用zset存储文章的点赞用户id，score存储点赞时间戳，可以按照排名获取前几名点赞的用户。
+
+## 关注
+
+使用set维护关注列表，使用交集求共同关注。
+
+## FeedStream
+
+- TimeLine：按照时间排序，不做筛选，常用于好友或关注。
+- 智能推荐：发现页面
+
+### TimeLine
+
+- **拉模式**（读扩散）：消息保存在发送方，消费方上线后主动去拉取。适合消费者少的场景，空间占用小。
+- **推模式**（写扩散）：当消息出现时，主动的发送到消费方。适合消费者多的场景，拉去速度快。
+- **推拉结合模式**：也叫做读写混合，将发送方和消费者标记
+  - 如果订阅的消费者较多，那么采用拉模式，但是对于其标记的活跃粉丝，采用推模式，主动将消息推送给活跃粉丝。
+  - 如果订阅的消费者较少，那么采用拉模式。
+
+### 实现
+
+在实现FeedStream时，不能使用传统的分页模式，而要使用滚动分页的模式，记录上一次的最后时间戳，同时要记录偏移量。
+
+```java
+    Set<ZSetOperations.TypedTuple<String>> typedTuples = stringRedisTemplate.opsForZSet()
+        .reverseRangeByScoreWithScores(key, 0, max, offset, 2);
+// key min max offset count
+// zset key, 最小值，最大值，偏移量，个数
+// 偏移量：上次的相同的最小值的个数
+```
+
+## 签到
+
+使用BitMap，签到记为1。key使用`year+month`，因为BitMap只有`32`位。
+
+- 当月签到天数
+- 连续签到：使用位运算逆序查找第一个不为1的位置。
+
+## UV统计
+
+使用HyperLogLog：
+
+```
+stringRedisTemplate.opsForHyperLogLog().add("key",user);
+Long size = stringRedisTemplate.opsForHyperLogLog().size();
+```
+
+有一定的误差，但是占用内存空间很小。
