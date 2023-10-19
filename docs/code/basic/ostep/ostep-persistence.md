@@ -443,7 +443,7 @@ $D = \frac{F}{1 - F} * R_{p} * T_{p}$
 
 还有一种是将segment分为热和冷两类，热段表示经常发生覆盖，不应该去经常清理，冷段表示很少发生更改，更应该去清理。
 
-
+ [COW-写时复制](..\..\sundry\COW-写时复制.md) 
 
 > 崩溃恢复：
 >
@@ -469,11 +469,6 @@ LFS有关文章：[Log-structured File System](https://zhuanlan.zhihu.com/p/4135
 >
 > [初学者指南：ZFS 是什么，为什么要使用 ZFS？](https://zhuanlan.zhihu.com/p/45137745)
 
-> 写时复制（copy on write, COW）：
->
-> [写时复制技术详解(COW)](https://zhuanlan.zhihu.com/p/452676926)
->
-> [再谈 copy-on-write](https://zhuanlan.zhihu.com/p/136428913)
 
 ## 数据的完整性与保护
 
