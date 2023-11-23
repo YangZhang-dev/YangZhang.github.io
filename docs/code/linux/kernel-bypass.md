@@ -17,6 +17,8 @@ tag:
 
 [千万并发的秘密-内核是问题的根本 ](https://www.oschina.net/translate/the-secret-to-10-million-concurrent-connections-the-kernel?cmp&p=1)
 
+[C10K-C10M进阶（高并发的真正理解）](https://zhuanlan.zhihu.com/p/635431441)
+
 在跨越了C10K的门槛后，不知不觉中就来到了C10M的门前，正如上面的文章所述：
 
 > The kernel isn’t the solution. **The kernel is the problem**.
@@ -44,7 +46,13 @@ tag:
 
 绑定CPU，利用CPU的亲和性，减少高速缓存缺失的情况。
 
-使用大内存页，降低页缺失的概率。
+使用大内存页，降低页缺失的概率。 减少页的数量，增加快表命中率。
+
+> [Linux 中的“大内存页”（hugepage）是个什么？](https://zhuanlan.zhihu.com/p/34659353)
+>
+> [Linux HugePages（大内存页） 原理与使用](https://zhuanlan.zhihu.com/p/366702339)
+>
+> [内存管理特性分析（十二）:大页(huge pages)技术分析](https://zhuanlan.zhihu.com/p/609457879)
 
 减少数据拷贝。
 
@@ -58,11 +66,10 @@ tag:
 
 内核旁路有两类的技术代表：
 
-- 使用 **DPDK** 技术，跳过内核协议栈，直接由用户态进程用**轮询**的方式，来处理网络请求。同时，再结合大页、CPU 绑定、内存对齐、流水线并发等多种机制，优化网络包 的处理效率。
-- 使用内核自带的 **XDP** 技术，在网络包进入内核协议栈前，就对其进行处理，这样也可以实现很好的性能。
-- 使用网卡的RDMA技术，直接将数据放入远程主机的指定地址，或直接读取远程主机指定地址的数据。
+- upload：使用 **DPDK** 技术，跳过内核协议栈，直接由用户态进程用**轮询**的方式，来处理网络请求。同时，再结合大页、CPU 绑定、内存对齐、流水线并发等多种机制，优化网络包 的处理效率。
+- offload：使用内核自带的 **XDP** 技术，在网络包进入内核协议栈前，就对其进行处理，这样也可以实现很好的性能。使用网卡的RDMA技术，直接将数据放入远程主机的指定地址，或直接读取远程主机指定地址的数据。
 
-### DPDK
+## DPDK
 
 [DPDK的基本原理](https://zhuanlan.zhihu.com/p/347693559)
 
@@ -93,3 +100,25 @@ DPDK网络数据流程：
 ```
 
 <img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/d01ee12fdc80e9192f0da5a592752f1b.png" alt="image-20231123220705681" style="zoom:67%;" />
+
+## RDMA
+
+[RDMA网卡在实际环境中有什么作用 ](https://zhuanlan.zhihu.com/p/340361876)
+
+RDMA（英文全称：Remote Direct Memory Access），意思是远程直接内存访问，这种技术是一种最早应用于高性能计算领域的网络通讯协议，目前已在数据中心逐渐普及。RDMA允许用户程序绕过操作系统内核，直接和网卡交互进行网络通信，从而提供高带宽和极小时延。所以RDMA网卡的工作原理是，与传统的TCP/CP网卡相比，RDMA网卡省略了内核（CPU）的参与，所有数据的传输直接从应用程序到达网卡。
+
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/623ea44331c3bf32e5c4ae801f94cbcb.png" alt="image-20231123230402554" style="zoom:67%;" />
+
+1. 将可靠数据传输的协议栈交由网卡处理（硬件 offload）
+
+2. 减少数据拷贝与用户程序共用内存，减少数据拷贝。
+
+[DPDK和RDMA的区别](https://blog.csdn.net/bandaoyu/article/details/112588762)
+
+## XDP-eBPF
+
+[XDP技术——Linux网络处理的高速公路](https://zhuanlan.zhihu.com/p/453005342)
+
+[eBPF和XDP技术](https://zhuanlan.zhihu.com/p/558509760)
+
+XDP全称eXpress Data Path，即快速数据路径，**XDP是Linux网络处理流程中的一个eBPF钩子，能够挂载eBPF程序**，它能够在网络数据包到达网卡驱动层时对其进行处理，具有非常优秀的数据面处理性能，打通了Linux网络处理的高速公路。XDP让灌入网卡的eBPF程序直接处理网络流，bypass掉内核，使用网卡NPU专门干这个事**。**
