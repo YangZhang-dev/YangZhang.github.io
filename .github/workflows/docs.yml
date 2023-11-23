@@ -31,7 +31,7 @@ jobs:
             port: ${{ secrets.PORT }}
             local_path: 'docs/.vuepress/dist'
             remote_path: '/root/page'
-            sftpArgs: '-o ConnectTimeout=5'
+            sftpArgs: '-o ConnectTimeout=10'
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2
         with:
