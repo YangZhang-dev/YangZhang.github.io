@@ -92,5 +92,4 @@ DPDK网络数据流程：
 用户层通过设备映射取包--->进入用户层协议栈--->逻辑层--->业务层
 ```
 
-<img src="C:\Users\张扬\AppData\Roaming\Typora\typora-user-images\image-20231123220705681.png" alt="image-20231123220705681" style="zoom:67%;" />
-
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/d01ee12fdc80e9192f0da5a592752f1b.png" alt="image-20231123220705681" style="zoom:67%;" />
