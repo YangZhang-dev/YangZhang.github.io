@@ -24,7 +24,7 @@ tag:
 
 首先引出现代CPU的架构：
 
-<img src="C:\Users\张扬\AppData\Roaming\Typora\typora-user-images\image-20231204175301087.png" alt="image-20231204175301087" style="zoom: 67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/4e7fb24d005f3ccba53e1cf89dde2207.png" alt="image-20231204175301087" style="zoom: 67%;" />
 
 L1和L2都是片内缓存，只可由响应的CPU单独使用，而L3是由所有CPU所共享的。其中L1l是指令缓存，而L1D是数据缓存。缓存和主存都是RAM，只不过缓存时SRAM而主存时DRAM。
 
@@ -96,11 +96,11 @@ CPU感知其他CPU的行为（比如读、写某个缓存行）就是是通过�
 
 由此可以看出，对于一个CPU来说，一个缓存行可能存在四种事件：本地读，本地写，远程读，远程写。
 
-<img src="C:\Users\张扬\AppData\Roaming\Typora\typora-user-images\image-20231204200308215.png" alt="image-20231204200308215" style="zoom:67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/dd4889cca58dad06db724c704553087f.png" alt="image-20231204200308215" style="zoom:67%;" />
 
 上面的图是缓存行的状态机表示图，下面的是整个流程的状态和数据的变化：
 
-<img src="D:\桌面\_MESI状态转换表格.webp" alt="_MESI状态转换表格" style="zoom:67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/115d9472dd83822d99850a4ecce6b6ca.webp" alt="_MESI状态转换表格" style="zoom:67%;" />
 
 ### Store buffer
 

@@ -18,13 +18,13 @@ tag:
 
 首先我们需要明确一些关于tomcat，servlet，IOC之间的关系，更多的是包含关系：[启动IoC容器](https://www.liaoxuefeng.com/wiki/1539348902182944/1540592861446176)。
 
-<img src="C:\Users\张扬\AppData\Roaming\Typora\typora-user-images\image-20231213174511418.png" alt="image-20231213174511418" style="zoom:67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/a814d5d0620b371f67ab4e0c927547c2.png" alt="image-20231213174511418" style="zoom:67%;" />
 
 上图是传统Java web的架构图，一个Tomcat服务器可以运行多个web项目，也就是Servlet Container。每个Container中都含有三大组件：servlet，Filter，Listener。
 
 而在Spring MVC中，引入了IOC容器，并且简化了操作流程，具体变为了下图：
 
-<img src="C:\Users\张扬\AppData\Roaming\Typora\typora-user-images\image-20231213174748662.png" alt="image-20231213174748662" style="zoom:67%;" />
+<img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/85fe290a255cefe66f288db730c73c6c.png" alt="image-20231213174748662" style="zoom:67%;" />
 
 上图的Servlet实际上就是DispatcherServlet，我们把所有的请求都交给DispatcherServlet处理，它包含着IOC的引用，我们通过IOC获取到具体的操作逻辑。
 
