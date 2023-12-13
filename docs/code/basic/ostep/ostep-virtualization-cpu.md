@@ -206,7 +206,7 @@ struct proc {
 
 除了假设工作负载之外，还需要另外能够比较不同的调度策略：**周转时间**（**scheduling metric**）:
 
-$ T_{turnaround} = T{completion} − T{arrival}$ 
+$ T_{turnaround} = T_{completion} − T_{arrival}$ 
 
 即周转时间等于作业完成时间减去作业到达时间。很明显它是一个性能指标。
 

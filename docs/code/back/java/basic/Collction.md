@@ -1,7 +1,7 @@
 ---
 title: java集合类
 
-order: 1
+order: 10
 author: zzys
 date: 2023-03-10
 category:
