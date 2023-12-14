@@ -26,7 +26,6 @@ title 数据比例图
 LR即从左到右，TD即从上到下
 
 ```mermaid
-
 graph TD
 a("变量") --条件--> B --> C --> D --> a
 style a fill:#F0F0F0,stroke:#333,stroke-width:2px;

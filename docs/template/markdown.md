@@ -9,20 +9,25 @@ tag:
 - markdown语法
 ---
 
+## 目录
+
 typora:
-[toc]
+`[toc]`
 
 vuepress:
-[[toc]]
+`[[toc]]`
 
 ## 角标
 
 You can create footnotes like this[^fn1] and this[^fn2].
+`[^fn1] and this[^fn2].`
 
 ## 任务列表
 
 - [ ] task 1
 - [x] task 2
+
+`- [ ] task 1 - [x] task 2`
 
 ## 图片
 
@@ -35,6 +40,7 @@ You can create footnotes like this[^fn1] and this[^fn2].
 快捷链接：[Google][]
 
 所有的链接都可以加标题，鼠标悬浮试试：[链接标题为：test](http://baidu.com "test")
+`[链接标题为：test](http://baidu.com "test")`
 
 ## 样式
 
@@ -61,11 +67,11 @@ __sd__
 ## 简单公式
 
 X~long\ text~
-
+`X~long\ text~`
 H~2~O
-
+`H~2~O`
 X^2^
-
+`X^2^`
 ## 数学公式
 
 $a = b$
