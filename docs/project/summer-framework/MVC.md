@@ -540,7 +540,7 @@ class ApiFilter implements Filter {
 
 ### End
 
-一些具体的ModeView不再叙述，使用的时FreeMarker引擎。
+一些具体的ModeView不再叙述，使用的是FreeMarker引擎。
 
 最后创建配置类WebMvcConfiguration：
 
