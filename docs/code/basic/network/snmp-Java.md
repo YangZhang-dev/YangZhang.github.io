@@ -14,12 +14,12 @@ tag:
 
 Java中的snmp客户端是snmp4j，使用maven将其导入：
 
-```java
+```xml
 <dependency>
     <groupId>org.snmp4j</groupId>
     <artifactId>snmp4j</artifactId>
     <version>2.5.0</version>
-    </dependency>
+</dependency>
 ```
 
 ### 实体

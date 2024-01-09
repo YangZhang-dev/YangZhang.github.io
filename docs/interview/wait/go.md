@@ -122,3 +122,58 @@ MySQL的常见索引类型有哪些？
 10，对一个已经关闭的channel读写会发生什么 （如果不空的话，先读数据，空的话读对应类型的零值， 写的话会出现panic）
 
 11，开五个协程 全部执行一个函数，怎么保证协程执行完全部打印（使用sync.WaitGroup ）
+
+
+
+华顺信安
+
+https://www.nowcoder.com/discuss/531938843365212160
+
+谈一下你对 go 的理解
+
+go 如何实现面向对象
+
+go 的并发和其他语言比有哪些优势？
+
+go 微服务和其他语言相比的优势
+
+goroutine 和系统线程的区别
+
+讲一讲 go 的协程
+
+讲一下 go 的 GC 过程
+
+讲一下 go 的 channel
+
+go 的 select
+
+go 的反射
+
+map 和 slice
+
+map 如何实现并发安全
+
+go 中如何做并发和并行
+
+go defer 原理，defer 里可不可以改变参数
+
+gorm 如何防止依赖注入
+
+谈一下 mysql 和 redis 特点区别
+
+mysql 的正则为什么不好？
+
+mysql 事务
+
+索引
+
+主键和外键
+
+一些常见的 SQL 语法
+
+一道算法题根据公式求 PI
+
+
+
+
+

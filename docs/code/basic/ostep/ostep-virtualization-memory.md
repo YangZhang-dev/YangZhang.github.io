@@ -608,7 +608,7 @@ AddressOfPTE = Base[SN] + (VPN * sizeof(PTE));
 
 通过这个目录，我们就可以将PT分布在内存的各个位置上，不需要存放在连续的物理内存中。为了获取到真正的物理地址，我们需要对内存操作两次，因此性能有所下降。同时明显复杂度有所上升。
 
-这里通过一个例子来理解多级页表的原理。一个大小为 16KB 的地址空间，其中包含 64 个字节的页。因此，我们有一个14位的虚拟地址空间，VPN 有8位，偏移量有6位。假设每个PTE 的大小是4个字节，则每页可以容纳16个PTE，一共有16页，页总大小为1KB（256×4 字节）。那么就需要为为这16页建立索引，使用VPN的前4位形成**PDIndex**。那么`PDEAddr = PageDirBase +（PDIndex * sizeof（PDE））`。同时使用VPN剩下的位数指定**PTIndex**。所以有`PTEAddr = (PDE.PFN << SHIFT) + (PTIndex * sizeof(PTE)) `
+这里通过一个例子来理解多级页表的原理。一个大小为 16KB 的地址空间，其中包含 64 字节的页。因此，我们有一个14位的虚拟地址空间，VPN 有8位，偏移量有6位。假设每个PTE 的大小是4个字节，则每页可以容纳16个PTE，一共有16页，页总大小为1KB（256×4 字节）。那么就需要为为这16页建立索引，使用VPN的前4位形成**PDIndex**。那么`PDEAddr = PageDirBase +(PDIndex * sizeof(PDE))`。同时使用VPN剩下的位数指定**PTIndex**。所以有`PTEAddr = (PDE.PFN << SHIFT) + (PTIndex * sizeof(PTE)) `
 
 <img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/b02ad03366a5476c9b40e39ce984d7b5.png" alt="image-20230818123529988" style="zoom:67%;" />
 
@@ -618,7 +618,7 @@ AddressOfPTE = Base[SN] + (VPN * sizeof(PTE));
 
 <img src="https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/52d1cc357c0aff9c42bca1090bbba2f5.png" alt="image-20230818123845079" style="zoom:50%;" />
 
-例如要加载虚拟地址 `11 1111 1000 0000`
+例如要加载虚拟地址 `1111 1110 000000`
 
 1. 通过前4位`1111`，十进制`16`的PDIndex，利用公式
 

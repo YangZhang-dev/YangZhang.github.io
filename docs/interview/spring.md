@@ -63,3 +63,9 @@ refresh方法首先通过`obtainFreshBeanFactory`获取到一个Bean工厂（低
 [带你彻底掌握Bean的生命周期 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/638361741)
 
 [java - Spring Bean生命周期详解 - Spring注解全面解析 - SegmentFault 思否](https://segmentfault.com/a/1190000044064099)
+
+## SpringBoot和Spring区别
+
+spb是对sp的拓展，首先是消除了XML配置，将常见的依赖进行整合。提供了自动装配机制。将应用服务器内嵌入应用中，只需要打jar包即可运行服务。
+
+## Spring循环依赖
