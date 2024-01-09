@@ -107,7 +107,7 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
 
 在内存中的结构应该是这样的，实线代表强引用，虚线代表虚引用，只被虚引用引用的对象每次被GC扫描到后，会直接清除。
 
-![](D:\桌面\ThreadLocal-memory.png)
+![](https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/ea780a9ed24d810460a43c448f5046db.png)
 
 如果我们将ThreadLocalRef设置为NULL，会发生什么呢？
 
@@ -271,7 +271,7 @@ public class StringInheritable {
 
 如图所示，两个线程通过同一个InheritableThreadLocal，获取到自己的ThreadLocalMap，但是其中的Key和Value都是分别指向相同的对象，如果对对象进行改变，另一个线程会感知到。
 
-![](D:\桌面\InheritableThreadLocal.png)
+![](https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/5644887b3c9ac59e0ee84d8cb41b342c.png)
 
 ### 改进
 

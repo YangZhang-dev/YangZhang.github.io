@@ -186,7 +186,7 @@ public class MySnmp {
 
 接下来，我们对打好的jar包进行部署。
 
-打开项目目录下的target目录，其中有一个类似`snmp-1.0-SNAPSHOT-jar-with-dependencies.jar`的jar包，将其复制，放置到`D:\桌面\apache-jmeter-5.6.2\lib\ext`，注意`D:\桌面\apache-jmeter-5.6.2`是我的安装目录，根据自己的情况修改。
+打开项目目录下的target目录，其中有一个类似`snmp-1.0-SNAPSHOT-jar-with-dependencies.jar`的jar包，将其复制，放置到`apache-jmeter-5.6.2\lib\ext`。
 
 现在再次启动jmeter，创建java request，会发现多了一个TestGet测试选项，如果没有那就是出现问题了，需要自己再检查一下，可以点击右侧的下三角看一下。
 
@@ -206,7 +206,7 @@ public class MySnmp {
 
 对类似的网卡挨个右键选择状态，点击详细信息，根据ip地址和掩码计算一下是否在一个网络即可。
 
-![image-20231220141952535](C:\Users\张扬\AppData\Roaming\Typora\typora-user-images\image-20231220141952535.png)
+![image-20231220141952535](https://blog-zzys.oss-cn-beijing.aliyuncs.com/articles/e19987da5ab19581a80ad571cbbafed8.png)
 
 我们确认网卡后，进入wireshark，输入过滤器snmp就完成了wireshark的准备工作，我这里抓的是VMware-8的虚拟网卡。
 
