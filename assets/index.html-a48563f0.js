@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as n,a as o}from"./app-20538318.js";const c={},a=o("p",null,"代码仓库：https://github.com/YangZhang-dev/knojava",-1),s=[a];function _(r,l){return t(),n("div",null,s)}const i=e(c,[["render",_],["__file","index.html.vue"]]);export{i as default};

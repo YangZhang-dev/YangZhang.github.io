@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-146a1089","path":"/code/","title":"","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1694830608000,"contributors":[{"name":"YangZhang","email":"2803436425@qq.com","commits":1}]},"filePathRelative":"code/README.md","copyright":{"author":"YangZhang","license":"MIT Licensed | Copyright © 2023-present YangZhang"}}');export{e as data};

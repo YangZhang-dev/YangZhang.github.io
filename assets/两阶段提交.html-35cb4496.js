@@ -1,0 +1,1 @@
+import{_,o,c as t,a as e}from"./app-20538318.js";const c={},s=e("p",null,"MySQL的redo log。",-1),n=e("p",null,"RocketMQ的事务消息。",-1),l=[s,n];function r(a,d){return o(),t("div",null,l)}const f=_(c,[["render",r],["__file","两阶段提交.html.vue"]]);export{f as default};

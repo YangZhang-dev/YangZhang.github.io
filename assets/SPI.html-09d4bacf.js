@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as s,a as e}from"./app-20538318.js";const _={},n=e("p",null,"jdk",-1),c=e("p",null,"dubbo",-1),l=e("p",null,"spring boot",-1),r=[n,c,l];function a(d,i){return t(),s("div",null,r)}const p=o(_,[["render",a],["__file","SPI.html.vue"]]);export{p as default};

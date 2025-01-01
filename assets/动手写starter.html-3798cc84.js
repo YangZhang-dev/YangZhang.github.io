@@ -1,0 +1,1 @@
+import{_ as e,o as s,c as o,a as t}from"./app-20538318.js";const _={},c=t("p",null,"本章介绍有关于spring boot stater的相关知识。",-1),r=t("iframe",{height:"665",src:"https://www.mubu.com/doc/2Ught8SETJ6#m",style:{width:"100%"}},null,-1),n=[c,r];function a(l,i){return s(),o("div",null,n)}const d=e(_,[["render",a],["__file","动手写starter.html.vue"]]);export{d as default};
